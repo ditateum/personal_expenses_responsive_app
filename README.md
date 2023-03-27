@@ -28,3 +28,21 @@ final statusBarHeight = MediaQuery.of(context).padding.top;
 // Sehingga:
 final bodyHeight = deviceHeight - appBarHeight - statusBarHeight;
 ```
+
+## LayoutBuilder
+adalah salah satu widget di Flutter yang memungkinkan kita untuk membangun tata letak (layout) dinamis dengan mengakses informasi tentang batas (constraints) dan ukuran (size) dari widget yang mengelilinginya. Dengan menggunakan `LayoutBuilder`, kita dapat mengatur tampilan widget yang responsif terhadap perubahan ukuran layar atau orientasi layar.
+
+`LayoutBuilder` bekerja dengan cara menempatkan child widget di dalam LayoutBuilder dan memberikan informasi tentang batas dan ukuran yang tersedia untuk child widget. Kemudian, child widget dapat diatur berdasarkan batas dan ukuran yang diberikan. `LayoutBuilder` akan mengeksekusi fungsi yang diberikan oleh pengembang setiap kali ukuran layar atau orientasi berubah, sehingga widget anak dapat ditempatkan ulang sesuai dengan ukuran layar yang baru.
+
+```
+LayoutBuilder(
+  builder: (BuildContext context, BoxConstraints constraints) {
+    return Container(
+      width: constraints.maxWidth,
+      height: constraints.maxHeight,
+      child: Text('Ukuran layar saat ini adalah ${constraints.maxWidth} x ${constraints.maxHeight}.'),
+    );
+  },
+);
+```
+ 
